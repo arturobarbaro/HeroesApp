@@ -56,7 +56,7 @@ nuevoHeroe( heroe: Heroe) {
     return this.http.get<Heroe>( this.heroesURL );
   }
 
-  deleteHero ( key$: string) {
+  eliminarHeroe ( key$: string) {
     const url = `${ this.heroeURL }${ key$ }.json`;
     console.log(url);
     return this.http.delete<Heroe>( url);

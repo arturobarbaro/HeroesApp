@@ -30,7 +30,20 @@
                         <td>{{i+1}}</td>
                         <td>{{ heroes[k].name}}</td>
                         <td>{{ heroes[k].company}}</td>
-                        <td>{{ heroes[k].bio}}</td>
+                        <td>
+                          <button type="button"
+                                  [routerLink]="['/heroe',k]"
+                                  class="btn btn-success"
+                                  name="button">
+                            Editar
+                          </button>
+                          <button type="submit"
+                                  (click)="eliminarHeroe(k)"
+                                  class="btn btn-danger"
+                                  name="button">
+                            Eliminar
+                          </button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
