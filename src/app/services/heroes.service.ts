@@ -38,7 +38,7 @@ nuevoHeroe( heroe: Heroe) {
       })
     };
     // https://angular.io/guide/http#making-a-post-request
-    return this.http.put<Heroe>( `${ this.heroeURL }/${ key$ }.json`, heroe , httpOptions )
+    return this.http.put<Heroe>( `${ this.heroeURL }${ key$ }.json`, heroe , httpOptions )
           .pipe(
           map( res => {
             console.log(res.name);
@@ -47,7 +47,7 @@ nuevoHeroe( heroe: Heroe) {
   }
 
   getHeroe ( key$: string ) {
-    let url:string= `${ this.heroeURL }${ key$ }.json`;
+    let url:string = `${ this.heroeURL }${ key$ }.json`;
     console.log(url);
     return this.http.get<Heroe>( url );
   }

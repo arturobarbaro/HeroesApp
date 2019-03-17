@@ -20,17 +20,17 @@
                 <thead class="thead-inverse">
                     <tr>
                         <th>#</th>
-                        <th>name</th>
-                        <th>company</th>
+                        <th>Nombre</th>
+                        <th>Company</th>
                         <th>Opciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>#</th>
-                        <th>name</th>
-                        <th>company</th>
-                        <th>Opciones</th>
+                    <tr *ngFor="let k of heroes | keys; let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{ heroes[k].name}}</td>
+                        <td>{{ heroes[k].company}}</td>
+                        <td>{{ heroes[k].bio}}</td>
                     </tr>
                 </tbody>
             </table>

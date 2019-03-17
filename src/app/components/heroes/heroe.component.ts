@@ -25,7 +25,13 @@ export class HeroeComponent implements OnInit {
     private router:Router,
     private activatedRoute:ActivatedRoute
   ) {
-    this.activatedRoute.params.subscribe( parametros => this.id=parametros['id']);
+    this.activatedRoute.params.subscribe(
+        parametros => {
+            this.id=parametros['id'];
+            if( this.id!=="nuevo"){
+              this._heroesService.getHeroe(this.id).subscribe(heroe=>this.heroe = heroe)
+            }
+        })
   }
 
   ngOnInit() {
@@ -42,7 +48,7 @@ export class HeroeComponent implements OnInit {
           },
           error=>console.error(error)
       );
-  } else {
+    } else {
       //actualiza
       this._heroesService.actualizarHeroe(this.heroe,this.id).subscribe(
           data=>{
@@ -50,7 +56,14 @@ export class HeroeComponent implements OnInit {
           },
           error=>console.error(error)
       )
+    }
   }
+
+  agregarNuevo(forma:NgForm){
+    this.router.navigate(['/heroe/nuevo']);
+    forma.reset({
+        company:'Marvel'
+    });
   }
 
 }
