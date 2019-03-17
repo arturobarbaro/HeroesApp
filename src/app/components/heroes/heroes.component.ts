@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class HeroesComponent implements OnInit {
 
   heroes:Heroe[] = [];
+  loading:boolean = true;
 
   constructor(private _heroesService:HeroesService,
               private router:Router) {
@@ -19,6 +20,7 @@ export class HeroesComponent implements OnInit {
         data=>{
             console.log(data)
             this.heroes=data;
+            this.loading=false;
         }
     )
   }
