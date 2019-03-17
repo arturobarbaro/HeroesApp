@@ -1,4 +1,4 @@
-<h3>Heroe <small>nombre..</small></h3>
+<h3>Heroe <small>name..</small></h3>
 <button class="btn btn-outline-danger"
         [routerLink]="['/heroes']"
         type="button"
@@ -13,19 +13,19 @@
 
           <div class="form-group">
               <label>Nombre</label>
-              <input [(ngModel)]="heroe.nombre"
+              <input [(ngModel)]="heroe.name"
                      type="text"
-                     name="nombre"
+                     name="name"
                      class="form-control"
-                     placeholder="Nombre del héroe"
+                     placeholder="name del héroe"
                      required>
           </div>
 
           <div class="form-group">
-              <label>Casa</label>
-              <select   [(ngModel)]="heroe.casa"
+              <label>Company</label>
+              <select   [(ngModel)]="heroe.company"
                         class="form-control"
-                        name="casa">
+                        name="company">
                   <option value="Marvel">Marvel</option>
                   <option value="DC">DC</option>
               </select>

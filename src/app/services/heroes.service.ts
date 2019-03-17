@@ -21,33 +21,35 @@ nuevoHeroe( heroe: Heroe) {
       'Content-Type':  'application/json'
     })
   };
+  console.log(heroe)
   // https://angular.io/guide/http#making-a-post-request
   return this.http.post<Heroe>( this.heroesURL, heroe , httpOptions )
         .pipe(
         map( res => {
-          console.log(res.nombre);
+          console.log(res.name);
           return res;
         }));
 }
 
- updateHero( heroe: Heroe, key$: string) {
+ actualizarHeroe( heroe: Heroe, key$: string) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'
       })
     };
     // https://angular.io/guide/http#making-a-post-request
-    return this.http.put<Heroe>( `${ this.heroeURL }${ key$ }.json`, heroe , httpOptions )
+    return this.http.put<Heroe>( `${ this.heroeURL }/${ key$ }.json`, heroe , httpOptions )
           .pipe(
           map( res => {
-            console.log(res.nombre);
+            console.log(res.name);
             return res;
           }));
   }
 
   getHeroe ( key$: string ) {
-    console.log(`${ this.heroeURL }${ key$ }.json`);
-    return this.http.get<Heroe>( `${ this.heroeURL }${ key$ }.json` );
+    let url:string= `${ this.heroeURL }${ key$ }.json`;
+    console.log(url);
+    return this.http.get<Heroe>( url );
   }
 
   getHeroes () {
@@ -55,7 +57,7 @@ nuevoHeroe( heroe: Heroe) {
   }
 
   deleteHero ( key$: string) {
-    const url = `${ this.heroeURL }/${ key$ }.json`;
+    const url = `${ this.heroeURL }${ key$ }.json`;
     console.log(url);
     return this.http.delete<Heroe>( url);
   }

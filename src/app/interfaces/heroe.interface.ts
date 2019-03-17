@@ -1,6 +1,6 @@
 export interface Heroe {
-    nombre: string;
+    name: string;
     bio: string;
-    casa: string;
+    company: string;
     key?: string;
 }
